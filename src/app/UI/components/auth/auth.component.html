@@ -1,0 +1,99 @@
+<div class="h-screen flex justify-center items-center bg-slate-200">
+  <div class="relative w-[95%] h-[95%] bg-white rounded-3xl p-3 sm:w-[70%] sm:h-[80%] flex flex-col">
+    <span class="flex justify-center text-5xl">Crear cuenta</span>
+    <div class="w-full flex justify-center">
+      <ol class="mt-10 flex w-[80%] justify-center lg:w-[60%]">
+        <li class="flex w-full items-center">
+          <div
+            class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0 cursor-pointer"
+            [ngClass]="{ 'active': activeForm === 1, 'activeNext': activeForm >= 1 }" (click)="toggleForm(1)">
+            <i class="fa-solid fa-address-card" [ngClass]="{ 'active': activeForm === 1 }"></i>
+          </div>
+          <hr class="mr-3 h-[3px] rounded-full w-full flex-col flex"
+            [ngClass]="{ 'bg-amber-500': activeForm > 1, 'animate-progress': activeForm === 2 }">
+          <div class="mt-[95px] ml-[-11.4px] flex flex-col absolute">
+            <span class="max-w-[71px] break-words justify-start text-center">Datos Personales</span>
+          </div>
+        </li>
+        <li class="flex w-full items-center">
+          <span
+            class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0 cursor-pointer"
+            [ngClass]="{ 'active': activeForm === 2, 'activeNext': activeForm >= 2 }" (click)="toggleForm(2)">
+            <i class="fa-solid fa-map-location-dot" [ngClass]="{ 'active': activeForm === 2 }"></i>
+          </span>
+          <hr class="mr-3 h-[3px] rounded-full w-full"
+            [ngClass]="{ 'bg-amber-500': activeForm > 2, 'animate-progress': activeForm === 3 }">
+          <div class="mt-[95px] ml-[-7.21px] flex flex-col absolute">
+            <span class="max-w-[71px] break-words justify-start text-center">Ubicación</span>
+          </div>
+        </li>
+        <li class="flex items-center" [ngClass]=" {'w-full': activeStore === true}">
+          <span
+            class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0 cursor-pointer"
+            [ngClass]="{ 'active': activeForm === 3, 'activeNext': activeForm >= 3 }" (click)="toggleForm(3)">
+            <i class="fa-solid fa-id-badge" [ngClass]="{ 'active': activeForm === 3 }"></i>
+          </span>
+          <hr class="mr-3 h-[3px] rounded-full w-full" *ngIf="activeStore == true"
+            [ngClass]="{ 'bg-amber-500': activeForm > 3, 'animate-progress': activeForm === 4, 'activeNextStore' : activeStore == true }">
+          <div class="mt-[95px] ml-[-11.4px] flex flex-col absolute">
+            <span class="max-w-[71px] break-words justify-start text-center">Correo Electronico</span>
+          </div>
+        </li>
+        <li class="flex items-center" *ngIf="activeStore == true">
+          <span
+            class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0 cursor-pointer"
+            [ngClass]="{ 'active': activeForm === 4,  'activeNext': activeForm >= 4, 'activeNextStore' : activeStore == true }"
+            (click)="toggleForm(4)">
+            <i class="fa-solid fa-shop" [ngClass]="{ 'active': activeForm === 4 }"></i>
+          </span>
+          <div class="mt-[95px] ml-[-11.4px] flex flex-col absolute">
+            <span class="max-w-[71px] break-words justify-start text-center">Crear una Tienda</span>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <div class="mt-[72px] p-3 bg-slate-300 flex-grow flex flex-col">
+      <form *ngIf="activeForm === 1">
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-4 stores-container overflow-y-auto justify-start">
+          <button type="button" (click)="activeCreateStore()"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Activar Tienda</button>
+          <button type="button" (click)="desactiveCreateStore()"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Desactivar Tienda</button>
+          <button type="button" (click)="desactiveCreateStore()"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Desactivar Tienda</button>
+        </div>
+      </form>
+      <form *ngIf="activeForm === 2">
+        <!-- Contenido del segundo formulario -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-4 stores-container overflow-y-auto justify-start">
+          <span>Hola 2</span>
+          <span>Hola 2</span>
+          <span>Hola 2</span>
+        </div>
+      </form>
+      <form *ngIf="activeForm === 3">
+        <!-- Contenido del tercer formulario -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-4 stores-container overflow-y-auto justify-start">
+          <span>Hola 3</span>
+          <span>Hola 3</span>
+          <span>Hola 3</span>
+        </div>
+      </form>
+      <form *ngIf="activeForm === 4">
+        <!-- Contenido del cuarto formulario -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-4 stores-container overflow-y-auto justify-start">
+          <span>Hola 4</span>
+          <span>Hola 4</span>
+          <span>Hola 4</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+.active {
+  background-color: #003965;
+}
+
+.active i {
+  color: #fff;
+}
+
+.activeNext {
+  animation: entryAnimation 0.5s ease-in-out;
+  background-color: #003965;
+  color: #F8B91E;
+}
+
+.activeNextStore {
+  animation: entryAnimation 0.5s ease-in-out;
+}
+
+@keyframes entryAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+hr {
+  background-color: #ccc;
+  transition: background-color 0.3s ease-in-out;
+}
+
+hr.bg-gray-300 {
+  background-color: #d1d5db;
+}
+
+hr.bg-amber-500 {
+  background-color: #F8B91E;
+}
+
+@keyframes progress {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-progress {
+  animation: progress 0.3s ease-in-out forwards;
+}
